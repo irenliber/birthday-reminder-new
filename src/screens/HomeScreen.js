@@ -4,7 +4,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text>Hello</Text>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>Home screen</Text>
     </View>
   );
 }
