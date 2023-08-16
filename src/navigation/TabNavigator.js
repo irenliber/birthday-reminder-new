@@ -1,17 +1,63 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
-import { HomeScreen } from "../screens";
+import { BirthdaysScreen } from "../screens";
 import { CalendarScreen } from "../screens";
+import { CardsScreen } from "../screens";
+import { SettingsScreen } from "../screens";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
+import Ionicons from "@expo/vector-icons/Ionicons";
+
 function Tabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="HomeTab" component={HomeScreen} />
-      <Tab.Screen name="CalendarTab" component={CalendarScreen} />
+      <Tab.Screen
+        name="Birthdays"
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="home-outline" color={color} size={25} />
+          ),
+        }}
+        component={BirthdaysScreen}
+      />
+      <Tab.Screen
+        name="Calendar"
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="calendar-outline" color={color} size={25} />
+          ),
+        }}
+        component={CalendarScreen}
+      />
+      <Tab.Screen
+        name="Cards"
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="images-outline" color={color} size={25} />
+          ),
+        }}
+        component={CardsScreen}
+      />
+      <Tab.Screen
+        name="Settings"
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="settings-outline" color={color} size={25} />
+          ),
+        }}
+        component={SettingsScreen}
+      />
     </Tab.Navigator>
   );
 }
