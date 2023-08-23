@@ -11,3 +11,4 @@ export { default as RemindersScreen } from "./RemindersScreen";
 export { default as SettingsScreen } from "./SettingsScreen";
 export { default as ShareListScreen } from "./ShareListScreen";
 export { default as SplashScreen } from "./SplashScreen";
+export { default as WebViewScreen } from "./WebViewScreen";

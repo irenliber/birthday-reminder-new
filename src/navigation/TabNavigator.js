@@ -13,6 +13,7 @@ import {
   RemindersScreen,
   SettingsScreen,
   ShareListScreen,
+  WebViewScreen,
 } from "../screens";
 
 const Tab = createBottomTabNavigator();
@@ -82,6 +83,7 @@ export default function TabNavigator() {
       <Stack.Screen name="Reminders" component={RemindersScreen} />
       <Stack.Screen name="NewReminder" component={NewReminderScreen} />
       <Stack.Screen name="ShareList" component={ShareListScreen} />
+      <Stack.Screen name="WebView" component={WebViewScreen} />
     </Stack.Navigator>
   );
 }
