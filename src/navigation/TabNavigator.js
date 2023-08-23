@@ -1,10 +1,15 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
-import { BirthdaysScreen } from "../screens";
-import { CalendarScreen } from "../screens";
-import { CardsScreen } from "../screens";
-import { SettingsScreen } from "../screens";
+import {
+  BirthdaysScreen,
+  CalendarScreen,
+  CardsScreen,
+  EventScreen,
+  NewItemScreen,
+  NoteScreen,
+  SettingsScreen
+} from "../screens";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -66,6 +71,9 @@ export default function TabNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Tabs} />
+      <Stack.Screen name="Event" component={EventScreen} />
+      <Stack.Screen name="Note" component={NoteScreen} />
+      <Stack.Screen name="NewItem" component={NewItemScreen} />
     </Stack.Navigator>
   );
 }
