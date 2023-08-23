@@ -7,7 +7,9 @@ import {
   CardsScreen,
   EventScreen,
   NewItemScreen,
+  NewReminderScreen,
   NoteScreen,
+  RemindersScreen,
   SettingsScreen
 } from "../screens";
 
@@ -74,6 +76,8 @@ export default function TabNavigator() {
       <Stack.Screen name="Event" component={EventScreen} />
       <Stack.Screen name="Note" component={NoteScreen} />
       <Stack.Screen name="NewItem" component={NewItemScreen} />
+      <Stack.Screen name="Reminders" component={RemindersScreen} />
+      <Stack.Screen name="NewReminder" component={NewReminderScreen} />
     </Stack.Navigator>
   );
 }

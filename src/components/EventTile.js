@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   Switch,
-  Picker,
   Platform,
   Alert,
 } from 'react-native';
@@ -13,6 +12,7 @@ import DialogInput from 'react-native-dialog-input';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import colors from '../utils/colors';
 import moment from 'moment';
+import {Picker} from '@react-native-picker/picker';
 import i18n from '../utils/i18n';
 import computeLabel from '../hooks/computeLabel';
 
