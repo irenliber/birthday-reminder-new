@@ -5,12 +5,14 @@ import {
   BirthdaysScreen,
   CalendarScreen,
   CardsScreen,
+  GroupsScreen,
   EventScreen,
   NewItemScreen,
   NewReminderScreen,
   NoteScreen,
   RemindersScreen,
-  SettingsScreen
+  SettingsScreen,
+  ShareListScreen,
 } from "../screens";
 
 const Tab = createBottomTabNavigator();
@@ -73,11 +75,13 @@ export default function TabNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Tabs} />
+      <Stack.Screen name="Groups" component={GroupsScreen} />
       <Stack.Screen name="Event" component={EventScreen} />
       <Stack.Screen name="Note" component={NoteScreen} />
       <Stack.Screen name="NewItem" component={NewItemScreen} />
       <Stack.Screen name="Reminders" component={RemindersScreen} />
       <Stack.Screen name="NewReminder" component={NewReminderScreen} />
+      <Stack.Screen name="ShareList" component={ShareListScreen} />
     </Stack.Navigator>
   );
 }

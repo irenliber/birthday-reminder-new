@@ -1,6 +1,7 @@
 export { default as BirthdaysScreen } from "./BirthdaysScreen";
 export { default as CalendarScreen } from "./CalendarScreen";
 export { default as CardsScreen } from "./CardsScreen";
+export { default as GroupsScreen } from "./GroupsScreen";
 export { default as EventScreen } from "./EventScreen";
 export { default as LoginScreen } from "./LoginScreen";
 export { default as NewItemScreen } from "./NewItemScreen";
@@ -8,4 +9,5 @@ export { default as NewReminderScreen } from "./NewReminderScreen";
 export { default as NoteScreen } from "./NoteScreen";
 export { default as RemindersScreen } from "./RemindersScreen";
 export { default as SettingsScreen } from "./SettingsScreen";
+export { default as ShareListScreen } from "./ShareListScreen";
 export { default as SplashScreen } from "./SplashScreen";
