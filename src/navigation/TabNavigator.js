@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 import {
+  AvatarsLibraryScreen,
   BirthdaysScreen,
   CalendarScreen,
   CardsScreen,
@@ -84,6 +85,7 @@ export default function TabNavigator() {
       <Stack.Screen name="NewReminder" component={NewReminderScreen} />
       <Stack.Screen name="ShareList" component={ShareListScreen} />
       <Stack.Screen name="WebView" component={WebViewScreen} />
+      <Stack.Screen name="AvatarsLibrary" component={AvatarsLibraryScreen} />
     </Stack.Navigator>
   );
 }

@@ -57,6 +57,11 @@ const AvatarSelector = (props) => {
   const libraryPermission = async () => {
     // let { granted } = await MediaLibrary.requestPermissionsAsync();
     let { granted } = await MediaLibrary.getPermissionsAsync()
+    if (granted) return true;
+
+    let res = await MediaLibrary.requestPermissionsAsync();
+    console.log(res)
+
     return granted;
   }
 
