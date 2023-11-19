@@ -55,14 +55,12 @@ const AvatarSelector = (props) => {
   }
 
   const libraryPermission = async () => {
-    // let { granted } = await MediaLibrary.requestPermissionsAsync();
     let { granted } = await MediaLibrary.getPermissionsAsync()
     if (granted) return true;
 
-    let res = await MediaLibrary.requestPermissionsAsync();
-    console.log(res)
+    let { status } = await MediaLibrary.requestPermissionsAsync();
 
-    return granted;
+    return (status === "granted");
   }
 
   const openPhotoLibrary = async (isLibrary = true) => {
@@ -76,24 +74,24 @@ const AvatarSelector = (props) => {
         );
       }
     }
-    // try {
-    //   const mainFunc = isLibrary
-    //     ? ImagePicker.launchImageLibraryAsync
-    //     : ImagePicker.launchCameraAsync;
-    //   let result = await mainFunc({
-    //     mediaTypes: ImagePicker.MediaTypeOptions.Images,
-    //     allowsEditing: false,
-    //     aspect: [1, 1],
-    //     quality: 1,
-    //   });
-    //   if (!result.cancelled) {
-    //     const uri = result.uri;
-    //     setTmpImage(uri)
-    //     setVisible(true)
-    //   }
-    // } catch (e) {
-    //   console.log(e);
-    // }
+    try {
+      const mainFunc = isLibrary
+        ? ImagePicker.launchImageLibraryAsync
+        : ImagePicker.launchCameraAsync;
+      let result = await mainFunc({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: false,
+        aspect: [1, 1],
+        quality: 1,
+      });
+      if (!result.cancelled) {
+        const uri = result.uri;
+        setTmpImage(uri)
+        setVisible(true)
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
   // const resizeImage = async (uri) => {
   //   const manipResult = await ImageManipulator.manipulateAsync(
