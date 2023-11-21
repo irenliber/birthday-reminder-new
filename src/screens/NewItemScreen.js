@@ -246,6 +246,7 @@ const NewItemScreen = ({ navigation, route }) => {
         }
       } else {
         if (image && !image.includes('https://')) {
+          // TODO тут надо какой-то лоадер повесить, потому что когда долго сохраняется картинка непонятно что что-то происходит
           await updateImageBirthday({ image, id });
         }
         const result = await updateBirthday({ id, item });

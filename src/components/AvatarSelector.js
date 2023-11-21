@@ -15,9 +15,7 @@ import Constants from 'expo-constants';
 import * as MediaLibrary from 'expo-media-library';
 import { Camera } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
-// import * as ImageManipulator from 'expo-image-manipulator';
 import {useNavigation} from '@react-navigation/native';
-// import {ImageManipulator as ExpoImageCrop} from 'expo-image-crop'
 
 import formatDateNumber from '../utils/formatDateNumber';
 import getZodiacSign from '../utils/getZodiacSign';
@@ -45,8 +43,6 @@ const AvatarSelector = (props) => {
     title,
     category,
   } = user || {birthday_reminder_item: {}};
-  const [visible, setVisible] = useState(false);
-  const [tmpImage, setTmpImage] = useState(null);
   const {showActionSheetWithOptions} = useActionSheet();
   const navigation = useNavigation();
 
@@ -80,31 +76,18 @@ const AvatarSelector = (props) => {
         : ImagePicker.launchCameraAsync;
       let result = await mainFunc({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
-        allowsEditing: false,
+        allowsEditing: true,
         aspect: [1, 1],
         quality: 1,
       });
-      if (!result.cancelled) {
-        const uri = result.uri;
-        setTmpImage(uri)
-        setVisible(true)
+      if (!result.canceled) {
+        setImage(result.assets[0].uri)
       }
     } catch (e) {
       console.log(e);
     }
   };
-  // const resizeImage = async (uri) => {
-  //   const manipResult = await ImageManipulator.manipulateAsync(
-  //     uri,
-  //     [{resize: {width: 900}}],
-  //     {compress: 0.8, format: ImageManipulator.SaveFormat.JPEG}
-  //   );
-  //   setImage(
-  //     Platform.OS === 'android'
-  //       ? manipResult.uri
-  //       : manipResult.uri.replace('file://', '')
-  //   );
-  // }
+
   const zodiacSign = getZodiacSign(day_at, month_at);
   const daysBefore = countBeforeDaysHook({day_at, month_at});
   const nextTurning = countNextTurning({day_at, month_at, year_at});
@@ -215,13 +198,6 @@ const AvatarSelector = (props) => {
           </View>
         )}
       </TouchableOpacity>
-      {/*<ExpoImageCrop photo={{uri: tmpImage}}*/}
-      {/*               isVisible={visible}*/}
-      {/*               onPictureChoosed={({uri}) => resizeImage(uri)}*/}
-      {/*               onToggleModal={() => {*/}
-      {/*                 setVisible(false)*/}
-      {/*                 setTmpImage(null)*/}
-      {/*               }}/>*/}
     </View>
   );
 };
